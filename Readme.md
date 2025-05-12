@@ -1,9 +1,11 @@
+# Result table
+
+## NormalizeStrings result
 BenchmarkDotNet v0.14.0, Fedora Linux 42 (KDE Plasma Desktop Edition)
 AMD Ryzen 7 6800H with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
 .NET SDK 9.0.105
 [Host]     : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX2
 DefaultJob : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX2
-
 
 | Method  | text                 | Mean      | Error    | StdDev   | Gen0   | Allocated |
 |-------- |--------------------- |----------:|---------:|---------:|-------:|----------:|
