@@ -1,4 +1,4 @@
 using BenchmarkDotNet.Running;
-using Benchmarks.Strings;
+using NormalizeStrings.Benchmarks;
 
 _ = BenchmarkRunner.Run<BenchmarkText>();

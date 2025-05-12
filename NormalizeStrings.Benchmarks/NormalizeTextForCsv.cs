@@ -1,4 +1,4 @@
-namespace Benchmarks.Strings;
+namespace NormalizeStrings.Benchmarks;
 
 public static class NormalizeTextForCsv
 {

@@ -1,6 +1,6 @@
-﻿using Benchmarks.Strings;
+﻿using NormalizeStrings.Benchmarks;
 
-namespace Tests;
+namespace NormalizeStrings.Tests;
 
 public class Tests
 {

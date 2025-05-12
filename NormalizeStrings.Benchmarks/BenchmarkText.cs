@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Strings;
+namespace NormalizeStrings.Benchmarks;
 
 [RPlotExporter]
 [MemoryDiagnoser]

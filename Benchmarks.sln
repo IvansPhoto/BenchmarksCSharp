@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks.Strings", "Benchmarks.Strings\Benchmarks.Strings.csproj", "{BE02DA6F-D6A1-471A-B7CB-87D12841C4AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeStrings.Benchmarks", "NormalizeStrings.Benchmarks\NormalizeStrings.Benchmarks.csproj", "{BE02DA6F-D6A1-471A-B7CB-87D12841C4AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeStrings.Tests", "NormalizeStrings.Tests\NormalizeStrings.Tests.csproj", "{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

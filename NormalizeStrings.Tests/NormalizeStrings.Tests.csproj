@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Benchmarks.Strings\Benchmarks.Strings.csproj" />
+    <ProjectReference Include="..\NormalizeStrings.Benchmarks\NormalizeStrings.Benchmarks.csproj" />
   </ItemGroup>
 
 </Project>
