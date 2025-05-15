@@ -81,13 +81,33 @@ public class Tests
     }
 
     [Test]
-    public void TestStringCreateFor()
+    public void TestStringCreateReplace()
     {
         // Arrange, Act
-        var resultSelect1 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw1);
-        var resultSelect2 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw2);
-        var resultSelect3 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw3);
-        var resultSelect4 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw4);
+        var resultSelect1 = NormalizeTextForCsv.StringCreateReplace(TestData.CharsRaw1);
+        var resultSelect2 = NormalizeTextForCsv.StringCreateReplace(TestData.CharsRaw2);
+        var resultSelect3 = NormalizeTextForCsv.StringCreateReplace(TestData.CharsRaw3);
+        var resultSelect4 = NormalizeTextForCsv.StringCreateReplace(TestData.CharsRaw4);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(resultSelect1.SequenceEqual(TestData.CharsNormalized1), Is.True);
+            Assert.That(resultSelect2.SequenceEqual(TestData.CharsNormalized2), Is.True);
+            Assert.That(resultSelect3.SequenceEqual(TestData.CharsNormalized3), Is.True);
+            Assert.That(resultSelect4.SequenceEqual(TestData.CharsNormalized4), Is.True);
+        });
+    }
+    
+    
+    [Test]
+    public void TestValueStringBuilder()
+    {
+        // Arrange, Act
+        var resultSelect1 = NormalizeTextForCsv.ValueStringBuilder(TestData.CharsRaw1);
+        var resultSelect2 = NormalizeTextForCsv.ValueStringBuilder(TestData.CharsRaw2);
+        var resultSelect3 = NormalizeTextForCsv.ValueStringBuilder(TestData.CharsRaw3);
+        var resultSelect4 = NormalizeTextForCsv.ValueStringBuilder(TestData.CharsRaw4);
 
         // Assert
         Assert.Multiple(() =>

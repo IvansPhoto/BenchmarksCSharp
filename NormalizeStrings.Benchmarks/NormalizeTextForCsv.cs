@@ -10,7 +10,18 @@ public static partial class NormalizeTextForCsv
     public static readonly char[] CharToReplace = ['\n', '\r', ',', ';'];
     
     public static string Replace(string text) => text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
+    
+    public static string StringCreateReplace(string text) =>
+        string.Create(text.Length, text, (chars, state) =>
+        {
+            state.CopyTo(chars);
 
+            chars.Replace('\n', ' ');
+            chars.Replace('\r', ' ');
+            chars.Replace(',', ' ');
+            chars.Replace(';', ' ');
+        });
+    
     public static string StringNewSelect(string text) => new(text.Select(c => c is '\n' or '\r' or ',' or ';' ? ' ' : c).ToArray());
 
     [GeneratedRegex(@"[\r\n,;]+")]
@@ -27,15 +38,15 @@ public static partial class NormalizeTextForCsv
 
         return sb.ToString();
     }
-    
-    public static string StringCreateFor(string text)
+
+    public static string ValueStringBuilder(string text)
     {
-        return string.Create(text.Length, text, (chars, buffer) =>
+        var sb = new ValueStringBuilder(text.Length);
+        foreach (var ch in text)
         {
-            for (var i = 0; i < chars.Length; i++)
-            {
-                chars[i] = CharToReplace.Contains(buffer[i]) ? ' ' : buffer[i];
-            }
-        });
+            sb.Append(ch is '\n' or '\r' or ',' or ';' ? ' ' : ch);
+        }
+
+        return sb.ToString();
     }
 }

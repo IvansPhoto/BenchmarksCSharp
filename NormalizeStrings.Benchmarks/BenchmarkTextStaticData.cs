@@ -6,7 +6,7 @@ namespace NormalizeStrings.Benchmarks;
 [MemoryDiagnoser]
 public class BenchmarkTextStaticData
 {
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
     [Arguments(TestData.CharsRaw3)]
@@ -14,6 +14,16 @@ public class BenchmarkTextStaticData
     public string Replace(string text)
     {
         return NormalizeTextForCsv.Replace(text);
+    }
+            
+    [Benchmark(Baseline = true)]
+    [Arguments(TestData.CharsRaw1)]
+    [Arguments(TestData.CharsRaw2)]
+    [Arguments(TestData.CharsRaw3)]
+    [Arguments(TestData.CharsRaw4)]
+    public string StringCreateReplace(string text)
+    {
+        return NormalizeTextForCsv.StringCreateReplace(text);
     }
     
     [Benchmark]
@@ -44,15 +54,15 @@ public class BenchmarkTextStaticData
     public string StringBuilder(string text)
     {
         return NormalizeTextForCsv.StringBuilder(text);
-    }
-        
+    }    
+    
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
     [Arguments(TestData.CharsRaw3)]
     [Arguments(TestData.CharsRaw4)]
-    public string StringCreateFor(string text)
+    public string ValueStringBuilder(string text)
     {
-        return NormalizeTextForCsv.StringCreateFor(text);
+        return NormalizeTextForCsv.ValueStringBuilder(text);
     }
 }

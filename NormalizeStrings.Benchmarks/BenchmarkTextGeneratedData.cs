@@ -40,16 +40,16 @@ public class BenchmarkTextGeneratedData
         return $"{buffer} {eachElement}";
     }
     
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     public string Replace()
     {
         return NormalizeTextForCsv.Replace(Text);
     }
         
-    [Benchmark]
-    public string StringCreate()
+    [Benchmark(Baseline = true)]
+    public string StringCreateReplace()
     {
-        return NormalizeTextForCsv.StringCreateFor(Text);
+        return NormalizeTextForCsv.StringCreateReplace(Text);
     }
     
     [Benchmark]
@@ -59,14 +59,20 @@ public class BenchmarkTextGeneratedData
     }
     
     [Benchmark]
+    public string ReplaceRegex()
+    {
+        return NormalizeTextForCsv.ReplaceRegex(Text);
+    }
+    
+    [Benchmark]
     public string SelectStringBuilder()
     {
         return NormalizeTextForCsv.StringBuilder(Text);
     }
-        
+    
     [Benchmark]
-    public string ReplaceRegex()
+    public string ValueStringBuilder()
     {
-        return NormalizeTextForCsv.ReplaceRegex(Text);
+        return NormalizeTextForCsv.ValueStringBuilder(Text);
     }
 }
