@@ -12,7 +12,7 @@ public static partial class NormalizeTextForCsv
     public static string Replace(string text) => text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
     
     public static string StringCreateReplace(string text) =>
-        string.Create(text.Length, text, (chars, state) =>
+        string.Create(text.Length, text, static (chars, state) =>
         {
             state.CopyTo(chars);
 
