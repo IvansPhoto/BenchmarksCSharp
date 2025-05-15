@@ -11,6 +11,20 @@ public static partial class NormalizeTextForCsv
     
     public static string Replace(string text) => text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
     
+    public static string StringCreateFor(string text) =>
+        string.Create(text.Length, text, static (chars, state) =>
+        {
+            const char correctSymbol = ' ';
+            for (var i = 0; i < state.Length; i++)
+            {
+                chars[i] = state[i] switch
+                {
+                    '\r' or '\n' or ',' or ';' => correctSymbol,
+                    _ => state[i]
+                };
+            }
+        });
+    
     public static string StringCreateReplace(string text) =>
         string.Create(text.Length, text, static (chars, state) =>
         {

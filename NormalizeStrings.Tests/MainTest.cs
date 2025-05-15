@@ -24,6 +24,25 @@ public class Tests
     }
     
     [Test]
+    public void TestStringCreateFor()
+    {
+        // Arrange, Act
+        var result1 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw1);
+        var result2 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw2);
+        var result3 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw3);
+        var result4 = NormalizeTextForCsv.StringCreateFor(TestData.CharsRaw4);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result1.SequenceEqual(TestData.CharsNormalized1), Is.True);
+            Assert.That(result2.SequenceEqual(TestData.CharsNormalized2), Is.True);
+            Assert.That(result3.SequenceEqual(TestData.CharsNormalized3), Is.True);
+            Assert.That(result4.SequenceEqual(TestData.CharsNormalized4), Is.True);
+        });
+    }
+    
+    [Test]
     public void TestStringNewSelect()
     {
         // Arrange, Act
@@ -98,7 +117,6 @@ public class Tests
             Assert.That(resultSelect4.SequenceEqual(TestData.CharsNormalized4), Is.True);
         });
     }
-    
     
     [Test]
     public void TestValueStringBuilder()

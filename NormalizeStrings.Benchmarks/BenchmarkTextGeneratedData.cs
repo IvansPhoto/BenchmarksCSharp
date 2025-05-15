@@ -45,7 +45,13 @@ public class BenchmarkTextGeneratedData
     {
         return NormalizeTextForCsv.Replace(Text);
     }
-        
+      
+    [Benchmark]
+    public string StringCreateFor()
+    {
+        return NormalizeTextForCsv.StringCreateFor(Text);
+    }
+    
     [Benchmark(Baseline = true)]
     public string StringCreateReplace()
     {

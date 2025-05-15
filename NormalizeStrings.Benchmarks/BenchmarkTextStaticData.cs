@@ -15,7 +15,17 @@ public class BenchmarkTextStaticData
     {
         return NormalizeTextForCsv.Replace(text);
     }
-            
+    
+    [Benchmark]
+    [Arguments(TestData.CharsRaw1)]
+    [Arguments(TestData.CharsRaw2)]
+    [Arguments(TestData.CharsRaw3)]
+    [Arguments(TestData.CharsRaw4)]
+    public string StringCreateFor(string text)
+    {
+        return NormalizeTextForCsv.StringCreateFor(text);
+    }
+    
     [Benchmark(Baseline = true)]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
