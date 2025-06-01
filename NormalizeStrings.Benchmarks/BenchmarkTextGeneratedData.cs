@@ -45,7 +45,13 @@ public class BenchmarkTextGeneratedData
     {
         return NormalizeTextForCsv.Replace(Text);
     }
-      
+          
+    [Benchmark]
+    public string StringNewSelect()
+    {
+        return NormalizeTextForCsv.StringNewSelect(Text);
+    }
+
     [Benchmark]
     public string StringCreateFor()
     {
@@ -57,13 +63,7 @@ public class BenchmarkTextGeneratedData
     {
         return NormalizeTextForCsv.StringCreateReplace(Text);
     }
-    
-    [Benchmark]
-    public string Select()
-    {
-        return NormalizeTextForCsv.StringNewSelect(Text);
-    }
-    
+
     [Benchmark]
     public string ReplaceRegex()
     {
