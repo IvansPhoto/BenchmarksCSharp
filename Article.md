@@ -10,9 +10,18 @@ The first idea that may come to your mind is to iterate over the string, replace
 ```csharp
 public static string StringNewSelect(string text) => 
     new(text.Select(c => c is '\n' or '\r' or ',' or ';' ? ' ' : c).ToArray());
-
 ```
 But how about build-in methods? 
-There is the `string Replace(char oldChar, char newChar)` method. 
+There is the `string Replace(char oldChar, char newChar)` method.
 It can replace only one character per invocation, but we need to replace four, so we have to use call it four times, and each call invocation returns a string.
-I had doubts about its performance and decided to check how it works.
+```csharp
+public static string Replace(string text) => 
+    text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
+```
+I had doubts about its performance, and decided to check the hidden implementation in .NET 9.0 and almost at the begging we find `Vector512`.
+That is a hardware acceleration!
+It was not a surprise to me, because the C# development team added vectorization support to many LINQ methods in the last years.
+After that, I stated think that even four `Replace` calls might be faster than a single iteration, but I could not predict the behavior and created Benchmarks to test both solutions.
+
+## More advance solutions
+My colleges suggested to try `string.Create()` method as the most memory and CPU efficient to create a new string.
