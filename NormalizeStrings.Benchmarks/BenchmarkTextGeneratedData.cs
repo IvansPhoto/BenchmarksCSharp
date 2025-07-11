@@ -2,8 +2,8 @@ using BenchmarkDotNet.Attributes;
 
 namespace NormalizeStrings.Benchmarks;
 
-[RPlotExporter]
 [MemoryDiagnoser]
+[MarkdownExporterAttribute.GitHub]
 public class BenchmarkTextGeneratedData
 {
     private static readonly Random LocalRandom = new (17);
@@ -60,7 +60,7 @@ public class BenchmarkTextGeneratedData
         return NormalizeTextForCsv.StringCreateFor(Text);
     }
     
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     public string StringCreateReplace()
     {
         return NormalizeTextForCsv.StringCreateReplace(Text);
