@@ -9,10 +9,10 @@ public static partial class NormalizeTextForCsv
 {
     public static readonly char[] CharToReplace = ['\n', '\r', ',', ';'];
     
-    public static string StringNewSelect(string text) => 
+    public static string NewSelect(string text) => 
         new(text.Select(c => c is '\n' or '\r' or ',' or ';' ? ' ' : c).ToArray());
     
-    public static string Replace(string text) => 
+    public static string MultipleReplace(string text) => 
         text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
     
     

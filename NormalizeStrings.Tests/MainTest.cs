@@ -8,10 +8,10 @@ public class Tests
     public void TestReplace()
     {
         // Arrange, Act
-        var result1 = NormalizeTextForCsv.Replace(TestData.CharsRaw1);
-        var result2 = NormalizeTextForCsv.Replace(TestData.CharsRaw2);
-        var result3 = NormalizeTextForCsv.Replace(TestData.CharsRaw3);
-        var result4 = NormalizeTextForCsv.Replace(TestData.CharsRaw4);
+        var result1 = NormalizeTextForCsv.MultipleReplace(TestData.CharsRaw1);
+        var result2 = NormalizeTextForCsv.MultipleReplace(TestData.CharsRaw2);
+        var result3 = NormalizeTextForCsv.MultipleReplace(TestData.CharsRaw3);
+        var result4 = NormalizeTextForCsv.MultipleReplace(TestData.CharsRaw4);
 
         // Assert
         Assert.Multiple(() =>
@@ -46,10 +46,10 @@ public class Tests
     public void TestStringNewSelect()
     {
         // Arrange, Act
-        var resultSelect1 = NormalizeTextForCsv.StringNewSelect(TestData.CharsRaw1);
-        var resultSelect2 = NormalizeTextForCsv.StringNewSelect(TestData.CharsRaw2);
-        var resultSelect3 = NormalizeTextForCsv.StringNewSelect(TestData.CharsRaw3);
-        var resultSelect4 = NormalizeTextForCsv.StringNewSelect(TestData.CharsRaw4);
+        var resultSelect1 = NormalizeTextForCsv.NewSelect(TestData.CharsRaw1);
+        var resultSelect2 = NormalizeTextForCsv.NewSelect(TestData.CharsRaw2);
+        var resultSelect3 = NormalizeTextForCsv.NewSelect(TestData.CharsRaw3);
+        var resultSelect4 = NormalizeTextForCsv.NewSelect(TestData.CharsRaw4);
 
         // Assert
         Assert.Multiple(() =>

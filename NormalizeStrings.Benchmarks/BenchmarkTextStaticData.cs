@@ -13,7 +13,7 @@ public class BenchmarkTextStaticData
     [Arguments(TestData.CharsRaw4)]
     public string Replace(string text)
     {
-        return NormalizeTextForCsv.Replace(text);
+        return NormalizeTextForCsv.MultipleReplace(text);
     }
     
     [Benchmark]
@@ -43,7 +43,7 @@ public class BenchmarkTextStaticData
     [Arguments(TestData.CharsRaw4)]
     public string StringNewSelect(string text)
     {
-        return NormalizeTextForCsv.StringNewSelect(text);
+        return NormalizeTextForCsv.NewSelect(text);
     }    
     
     [Benchmark]
