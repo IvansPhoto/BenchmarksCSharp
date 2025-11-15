@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeStrings.Benchmarks
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeStrings.Tests", "NormalizeStrings.Tests\NormalizeStrings.Tests.csproj", "{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialisation.Benchmarks", "Serialisation.Benchmarks\Serialisation.Benchmarks.csproj", "{53BDC79E-DFD7-4B61-B841-1EB8D1560A03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialisation.Tests", "Serialisation.Tests\Serialisation.Tests.csproj", "{B6215071-85EC-444D-9BBA-31266163F19C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76A18EED-E2AE-4204-A4D0-19FF34E8B65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53BDC79E-DFD7-4B61-B841-1EB8D1560A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53BDC79E-DFD7-4B61-B841-1EB8D1560A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53BDC79E-DFD7-4B61-B841-1EB8D1560A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53BDC79E-DFD7-4B61-B841-1EB8D1560A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6215071-85EC-444D-9BBA-31266163F19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6215071-85EC-444D-9BBA-31266163F19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6215071-85EC-444D-9BBA-31266163F19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6215071-85EC-444D-9BBA-31266163F19C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
