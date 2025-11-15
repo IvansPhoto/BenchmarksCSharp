@@ -9,7 +9,13 @@ public static partial class NormalizeTextForCsv
 {
     public static readonly char[] CharToReplace = ['\n', '\r', ',', ';'];
     
-    public static string Replace(string text) => text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
+    public static string NewSelect(string text) => 
+        new(text.Select(c => c is '\n' or '\r' or ',' or ';' ? ' ' : c).ToArray());
+    
+    public static string MultipleReplace(string text) => 
+        text.Replace('\n', ' ').Replace('\r', ' ').Replace(',' , ' ').Replace(';', ' ');
+    
+    
     
     public static string StringCreateFor(string text) =>
         string.Create(text.Length, text, static (chars, state) =>
@@ -36,7 +42,6 @@ public static partial class NormalizeTextForCsv
             chars.Replace(';', ' ');
         });
     
-    public static string StringNewSelect(string text) => new(text.Select(c => c is '\n' or '\r' or ',' or ';' ? ' ' : c).ToArray());
 
     [GeneratedRegex(@"[\r\n,;]+")]
     private static partial Regex _separatorRegex();

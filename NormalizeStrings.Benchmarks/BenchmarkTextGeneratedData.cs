@@ -2,8 +2,8 @@ using BenchmarkDotNet.Attributes;
 
 namespace NormalizeStrings.Benchmarks;
 
-[RPlotExporter]
 [MemoryDiagnoser]
+[MarkdownExporterAttribute.GitHub]
 public class BenchmarkTextGeneratedData
 {
     private static readonly Random LocalRandom = new (17);
@@ -40,28 +40,30 @@ public class BenchmarkTextGeneratedData
         return $"{buffer} {eachElement}";
     }
     
-    [Benchmark]
-    public string Replace()
+    [Benchmark(Baseline = true)]
+    public string MultipleReplace()
     {
-        return NormalizeTextForCsv.Replace(Text);
+        return NormalizeTextForCsv.MultipleReplace(Text);
     }
-      
+          
+    [Benchmark]
+    public string NewSelect()
+    {
+        return NormalizeTextForCsv.NewSelect(Text);
+    }
+
+
+
     [Benchmark]
     public string StringCreateFor()
     {
         return NormalizeTextForCsv.StringCreateFor(Text);
     }
     
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     public string StringCreateReplace()
     {
         return NormalizeTextForCsv.StringCreateReplace(Text);
-    }
-    
-    [Benchmark]
-    public string Select()
-    {
-        return NormalizeTextForCsv.StringNewSelect(Text);
     }
     
     [Benchmark]

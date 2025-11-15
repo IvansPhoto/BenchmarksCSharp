@@ -2,20 +2,20 @@ using BenchmarkDotNet.Attributes;
 
 namespace NormalizeStrings.Benchmarks;
 
-[RPlotExporter]
 [MemoryDiagnoser]
+[MarkdownExporterAttribute.GitHub]
 public class BenchmarkTextStaticData
 {
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
     [Arguments(TestData.CharsRaw3)]
     [Arguments(TestData.CharsRaw4)]
-    public string Replace(string text)
+    public string MultipleReplace(string text)
     {
-        return NormalizeTextForCsv.Replace(text);
+        return NormalizeTextForCsv.MultipleReplace(text);
     }
-    
+
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
@@ -25,8 +25,10 @@ public class BenchmarkTextStaticData
     {
         return NormalizeTextForCsv.StringCreateFor(text);
     }
-    
-    [Benchmark(Baseline = true)]
+
+
+
+    [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
     [Arguments(TestData.CharsRaw3)]
@@ -35,17 +37,17 @@ public class BenchmarkTextStaticData
     {
         return NormalizeTextForCsv.StringCreateReplace(text);
     }
-    
+
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
     [Arguments(TestData.CharsRaw3)]
     [Arguments(TestData.CharsRaw4)]
-    public string StringNewSelect(string text)
+    public string NewSelect(string text)
     {
-        return NormalizeTextForCsv.StringNewSelect(text);
-    }    
-    
+        return NormalizeTextForCsv.NewSelect(text);
+    }
+
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
@@ -54,8 +56,8 @@ public class BenchmarkTextStaticData
     public string ReplaceRegex(string text)
     {
         return NormalizeTextForCsv.ReplaceRegex(text);
-    }    
-    
+    }
+
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
@@ -64,8 +66,8 @@ public class BenchmarkTextStaticData
     public string StringBuilder(string text)
     {
         return NormalizeTextForCsv.StringBuilder(text);
-    }    
-    
+    }
+
     [Benchmark]
     [Arguments(TestData.CharsRaw1)]
     [Arguments(TestData.CharsRaw2)]
